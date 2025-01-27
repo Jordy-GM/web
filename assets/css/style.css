@@ -636,3 +636,93 @@ footer{
         width: 100%;
     }
 }
+
+
+
+/* ----- carrusel / RESPONSIVE ----- */
+
+/* Estilos para la barra flotante */
+.floating-bar {
+    /* Elimina position: fixed y sus propiedades relacionadas */
+   
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 20px auto; /* Centra el carrusel horizontalmente y añade margen */
+    z-index: 1000;
+    
+}
+
+.floating-bar.visible {
+    top: 20px;
+}
+
+/* Estilos para el slider */
+.skills-slider-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.skills-slider-wrapper {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.skills-slider {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-slider a {
+    margin: 0 20px;
+}
+
+.skills-slider img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease; /* Solo la transición de escala */
+}
+
+.skills-slider img:hover {
+    transform: scale(1.1); /* Efecto de escala al hacer hover */
+}
+
+/* Máscara de desvanecimiento */
+.skills-slider-container::before,
+.skills-slider-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.skills-slider-container::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.skills-slider-container::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
