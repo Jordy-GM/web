@@ -1,3 +1,4 @@
+
 /* ----- POPPINS FONT Link ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -291,7 +292,7 @@ nav{
 /* -- ## --- RESUABLE CSS -- ## -- */
 .top-header{
     text-align: center;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
 .top-header h1{
     font-weight: 600;
@@ -724,6 +725,3 @@ footer{
         transform: translateX(-50%);
     }
 }
-
-
-

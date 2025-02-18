@@ -1,0 +1,271 @@
+/* Estilos generales */
+
+/* Variables CSS para definir espaciados, colores y otros valores reutilizables */
+:root {
+    --layout-values-margin-block: 5rem; /* Margen vertical general */
+    --layout-values-margin-inline: 5rem; /* Margen horizontal general */
+    --layout-values-gap-layout: 1.5rem; /* Espaciado entre secciones */
+    --layout-values-gap-items: 1rem; /* Espaciado entre elementos */
+    --frame-values-container-max-width: 1200px; /* Ancho máximo del contenedor */
+    --spacings-values-spacing-small: 0.5rem; /* Espaciado pequeño */
+    --subtitle-dark: linear-gradient(180deg, #5445A1 0%, #0E054D 100%); /* Degradado para subtítulos */
+}
+
+/* Estilos globales del cuerpo */
+body {
+    font-family: Arial, sans-serif; /* Fuente predeterminada */
+    background-color: #FAFAFA; /* Color de fondo */
+    color: rgb(10, 10, 10); /* Color del texto */
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+}
+
+/* Sección principal */
+.section {
+    overflow: hidden; /* Evita desbordamientos */
+    display: flex; /* Usa flexbox */
+    padding: var(--layout-values-margin-block) var(--layout-values-margin-inline); /* Aplica márgenes */
+    flex-direction: column; /* Dirección de los elementos */
+    align-items: center; /* Centra los elementos */
+}
+
+/* Contenedor de la sección */
+.section-container {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Dirección de los elementos */
+    align-items: center; /* Centra los elementos */
+    width: 70%; /* Ancho completo */
+    height: 100%;
+    max-width: var(--frame-values-container-max-width); /* Ancho máximo */
+    gap: var(--layout-values-gap-layout); /* Espaciado entre elementos */
+}
+
+/* Área del título */
+.title-area {
+    width: 100%; /* Ancho completo */
+    height: 100%;
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Dirección vertical */
+    text-align: center; /* Alineación centrada */
+    gap: var(--spacings-values-spacing-small); /* Espaciado */
+}
+
+/* Estilos para el título principal */
+.title-area h2 {
+    background: var(--subtitle-dark); /* Aplica degradado */
+    background-clip: text; /* Aplica el fondo solo al texto */
+    -webkit-background-clip: text; /* Compatibilidad con WebKit */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente */
+    font-size: 2rem; /* Tamaño del texto */
+    margin: 0; /* Elimina márgenes */
+}
+
+/* Estilos para subtítulos */
+.typography-large {
+    font-size: 1.25rem; /* Tamaño de fuente */
+    color: #FAFAFA; /* Color del texto */
+    word-wrap: break-word;
+    white-space: normal; /* Permite saltos de línea */
+}
+
+/* Contenedor de tarjetas de imagen */
+.image-card-container {
+    display: grid; /* Usa grid para distribución */
+    gap : 30px; /* Espaciado entre elementos */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    width: 160%; /* Ancho completo */
+    height: 100%; /* Asegura que el contenedor tenga una altura consistente */
+    align-items: stretch; /* Estira las tarjetas para que tengan el mismo tamaño */
+    margin-left: 0; /* Empuja las tarjetas hacia la derecha */
+    margin-right: 0; /* Empuja las tarjetas hacia la izquierda */
+    padding-bottom: 100px; /* Agrega espacio en la parte inferior */
+
+}
+
+/* Tarjeta de imagen */
+.image-card {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px; /* Bordes redondeados */
+    height: 150%; /* Asegura que todas las tarjetas tengan la misma altura */
+    width: 102%;
+    min-height: 200px; /* Ajusta este valor según el tamaño deseado */
+    min-width: 100; /* Ajusta este valor según el tamaño deseado */
+    transition: border-color 0.3s ease-in-out; /* Efecto de transición */
+    /* Borde difuminado con sombra */
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-top: 10px; /* Agrega espacio en la parte superior */
+    padding-left: 10px; /* Espacio en el lado izquierdo */
+    padding-right: 10px; /* Espacio en el lado derecho */
+}
+
+/* Efecto de resplandor al pasar el mouse */
+.image-card:hover {
+    box-shadow: 0 0 15px 6px #1E9FAB; /* Amarillo más fuerte */
+}
+
+/* Estilos para las imágenes dentro de las tarjetas */
+.image-card img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    display: block;
+    border-radius: 1px; /* Bordes redondeados */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2); /* Sombra difusa */
+}
+
+/* Superposición en tarjetas */
+.overlay {
+    position: absolute; /* Posición sobre la imagen */
+    top: 50;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Dirección vertical */
+    justify-content: flex-end; /* Alinea abajo */
+    padding: 1rem; /* Espaciado interno */
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Añadir transición para el movimiento */
+    transform: translateX(-10px); /* Desplaza el fondo a la izquierda */
+}
+
+/* Muestra la superposición cuando el cursor pasa por encima */
+.image-card:hover .overlay {
+    opacity: 1; /* Hace visible la superposición */
+}
+
+/* Contenedor de insignias */
+.badge-container {
+    display: flex; /* Usa flexbox */
+    gap: 0.5rem; /* Espaciado entre insignias */
+    margin-top: 0.5rem; /* Margen superior */
+}
+
+/* Insignias de información */
+.badge {
+    transform: scale(0.9); /* Reduce el tamaño al 60% */
+    display: block;
+    align-items: center;
+    gap: 0.3rem; /* Espaciado entre el icono y el texto */
+}
+
+
+
+/* Texto secundario */
+.typography-secondary-main {
+    font-size: 0.850rem; /* Tamaño de fuente */
+    color: rgba(255, 255, 255, 0.8); /* Color con opacidad */
+}
+
+/* Texto terciario */
+.typography-tertiary-main {
+    font-size: 0.75rem; /* Tamaño de fuente */
+    color: rgba(255, 255, 255, 0.6); /* Color con opacidad */
+}
+
+/* Botón especial */
+.special-cta {
+    display: inline-block; /* Elemento en línea */
+    margin-top: 2rem; /* Margen superior */
+    text-decoration: none; /* Elimina subrayado */
+    color: inherit; /* Mantiene el color original */
+}
+
+/* Botón de acción */
+.cta {
+    display: inline-flex; /* Usa flexbox */
+    align-items: center; /* Centra elementos */
+    gap: 0.5rem; /* Espaciado */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 0.5rem; /* Bordes redondeados */
+}
+
+/* Icono dentro del botón */
+.container-icon {
+    display: inline-block; /* Elemento en línea */
+    width: 1rem; /* Tamaño */
+    height: 100%; /* Tamaño */
+    background: currentColor; /* Usa el color actual */
+    mask-image: var(--change-icon); /* Usa una imagen como máscara */
+    mask-repeat: no-repeat; /* No repite */
+    mask-position: center; /* Centra la imagen */
+}
+
+/* Posicionamiento absoluto para elementos gráficos */
+.p-absolute {
+    position: absolute; /* Fija posición */
+}
+
+/* Ruido de fondo */
+.noise {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/bg_noise.png);
+    background-repeat: repeat;
+    background-size: 12rem;
+    mix-blend-mode: overlay;
+    opacity: 0.48;
+    z-index: -1;
+}
+
+/* Cuadrícula decorativa */
+.grid {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -3;
+    filter: blur(1px);
+    object-fit: contain;
+}
+
+/* Gráfico decorativo */
+.graph {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -4;
+}
+
+/* Estilos del carrusel */
+.carousel {
+    position: relative; /* Posicionamiento */
+    width: 100%;
+    height: 50%; /* Altura completa */
+
+    overflow: hidden; /* Evita desbordamientos */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Contenedor del carrusel */
+.carousel-inner {
+    display: flex; /* Usa flexbox */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Elementos del carrusel */
+.carousel-item {
+    min-width: 100%; /* Tamaño mínimo */
+    box-sizing: border-box; /* Mantiene el tamaño */
+}
+
+/* Imágenes del carrusel */
+.carousel-item img {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    display: block; /* Elimina espacios extra */
+}
