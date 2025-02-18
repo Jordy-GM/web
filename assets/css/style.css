@@ -284,6 +284,29 @@ nav{
     width: 100%;
     gap: 50px;
 }
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(0, 1fr); /* 2 columnas */
+        width: 150%; /* Ajusta el contenedor al 100% */
+        gap: 10px; /* Añadir más espacio entre las tarjetas */
+    
+
+    }
+}
+
+
+/* Media query para pantallas muy pequeñas */
+@media screen and (max-width: 768px) {
+    .image-card-container {
+        grid-template-columns: repeat(0, 1fr); /* 1 columna */
+        width: 150%; /* Ajusta el contenedor al 100% */
+        gap: 10px; /* Añadir más espacio entre las tarjetas */
+    
+    }
+}
+
 .col{
     display: flex;
     width: 50%;
@@ -322,6 +345,7 @@ h3{
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     border-radius: 20px;
 }
+
 .about-info p{
     text-align: center;
     font-size: 15px;
