@@ -289,7 +289,7 @@ nav{
 @media screen and (max-width: 1200px) {
     .row {
         grid-template-columns: repeat(0, 1fr); /* 2 columnas */
-        width: 150%; /* Ajusta el contenedor al 100% */
+        width: 200%; /* Ajusta el contenedor al 100% */
         gap: 10px; /* Añadir más espacio entre las tarjetas */
     
 
@@ -311,6 +311,7 @@ nav{
     display: flex;
     width: 50%;
 }
+
 
 /* -- ## --- RESUABLE CSS -- ## -- */
 .top-header{
@@ -367,6 +368,8 @@ h3{
 .skills-box{
     margin: 10px;
 }
+
+
 .skills-header{
     margin-bottom: 30px;
 }

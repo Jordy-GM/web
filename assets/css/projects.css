@@ -86,10 +86,14 @@ body {
 @media screen and (max-width: 1200px) {
     .image-card-container {
         grid-template-columns: repeat(3, 1fr); /* 2 columnas */
-        width: 200%; /* Ajusta el contenedor al 100% */
+        width: 270%; /* Ajusta el contenedor al 100% */
         gap: 120px; /* Añadir más espacio entre las tarjetas */
     
 
+    }
+
+    .image-card {
+        width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
     }
 }
 
@@ -97,9 +101,13 @@ body {
 @media screen and (max-width: 768px) {
     .image-card-container {
         grid-template-columns: repeat(1, 1fr); /* 1 columna */
-        width: 200%; /* Ajusta el contenedor al 100% */
+        width: 270%; /* Ajusta el contenedor al 100% */
         gap: 120px; /* Añadir más espacio entre las tarjetas */
     
+    }
+
+    .image-card {
+        width: 100%; /* Asegura que las tarjetas ocupen todo el ancho */
     }
 }
 
