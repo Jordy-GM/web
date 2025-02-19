@@ -288,24 +288,14 @@ nav{
 /* Media query para pantallas pequeñas */
 @media screen and (max-width: 1200px) {
     .row {
-        grid-template-columns: repeat(0, 1fr); /* 2 columnas */
         width: 200%; /* Ajusta el contenedor al 100% */
-        gap: 10px; /* Añadir más espacio entre las tarjetas */
     
 
     }
 }
 
 
-/* Media query para pantallas muy pequeñas */
-@media screen and (max-width: 768px) {
-    .image-card-container {
-        grid-template-columns: repeat(0, 1fr); /* 1 columna */
-        width: 150%; /* Ajusta el contenedor al 100% */
-        gap: 10px; /* Añadir más espacio entre las tarjetas */
-    
-    }
-}
+
 
 .col{
     display: flex;
