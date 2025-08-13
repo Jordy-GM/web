@@ -1,117 +1,133 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
+/* ----- FUNCIÓN PARA MOSTRAR / OCULTAR MENÚ DE NAVEGACIÓN ----- */
 function myMenuFunction(){
+    // Obtiene el elemento del menú de navegación por su ID
     var menuBtn = document.getElementById("myNavMenu");
   
+    // Si el menú tiene la clase "nav-menu" (estado normal)
     if(menuBtn.className === "nav-menu"){
-      menuBtn.className += " responsive";
+        // Agrega la clase "responsive" para mostrarlo en modo móvil
+        menuBtn.className += " responsive";
     } else {
-      menuBtn.className = "nav-menu";
+        // Si ya tiene "responsive", lo vuelve al estado normal
+        menuBtn.className = "nav-menu";
     }
-  }
+}
   
-  /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
-  window.onscroll = function() {headerShadow()};
+/* ----- AGREGAR SOMBRA A LA BARRA DE NAVEGACIÓN MIENTRAS SE HACE SCROLL ----- */
+// Ejecuta la función "headerShadow" cada vez que el usuario se desplaza
+window.onscroll = function() {headerShadow()};
   
-  function headerShadow() {
-    const navHeader =document.getElementById("header");
+function headerShadow() {
+    // Obtiene el elemento del encabezado por su ID
+    const navHeader = document.getElementById("header");
   
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop >  50) {
-  
-      navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
-      navHeader.style.height = "70px";
-      navHeader.style.lineHeight = "70px";
-  
+    // Si el scroll vertical es mayor a 50px
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        // Aplica una sombra al encabezado
+        navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+        // Reduce la altura del encabezado
+        navHeader.style.height = "70px";
+        // Ajusta la altura de línea del texto
+        navHeader.style.lineHeight = "70px";
     } else {
-  
-      navHeader.style.boxShadow = "none";
-      navHeader.style.height = "90px";
-      navHeader.style.lineHeight = "90px";
-  
+        // Si el scroll es menor a 50px, quita la sombra
+        navHeader.style.boxShadow = "none";
+        // Restaura la altura original del encabezado
+        navHeader.style.height = "90px";
+        navHeader.style.lineHeight = "90px";
     }
-  }
+}
   
-  
-  /* ----- TYPING EFFECT ----- */
-  var typingEffect = new Typed(".typedText",{
+/* ----- EFECTO DE TEXTO ESCRIBIÉNDOSE ----- */
+// Crea una nueva animación de texto usando Typed.js
+var typingEffect = new Typed(".typedText",{
+    // Palabras que se escribirán
     strings : ["Developer","Innovator","Solution"],
+    // Repetir en bucle
     loop : true,
+    // Velocidad al escribir
     typeSpeed : 100, 
+    // Velocidad al borrar
     backSpeed : 80,
+    // Tiempo de espera antes de borrar
     backDelay : 2000
-  })
+})
   
+/* ----- ANIMACIÓN SCROLL REVEAL ----- */
+// Configuración general de ScrollReveal
+const sr = ScrollReveal({
+    origin: 'top',       // Animación desde arriba
+    distance: '80px',    // Distancia del desplazamiento
+    duration: 2000,      // Duración en milisegundos
+    reset: true          // Repetir animación al volver a la sección
+})
   
-  /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
-  const sr = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 2000,
-        reset: true     
-  })
+/* -- ELEMENTOS DE LA SECCIÓN HOME -- */
+sr.reveal('.featured-text-card',{})
+sr.reveal('.featured-name',{delay: 100})
+sr.reveal('.featured-text-info',{delay: 200})
+sr.reveal('.featured-text-btn',{delay: 200})
+sr.reveal('.social_icons',{delay: 200})
+sr.reveal('.featured-image',{delay: 300})
   
-  /* -- HOME -- */
-  sr.reveal('.featured-text-card',{})
-  sr.reveal('.featured-name',{delay: 100})
-  sr.reveal('.featured-text-info',{delay: 200})
-  sr.reveal('.featured-text-btn',{delay: 200})
-  sr.reveal('.social_icons',{delay: 200})
-  sr.reveal('.featured-image',{delay: 300})
+/* -- CAJAS DE PROYECTOS -- */
+sr.reveal('.project-box',{interval: 200})
   
+/* -- TÍTULOS DE SECCIÓN -- */
+sr.reveal('.top-header',{})
   
-  /* -- PROJECT BOX -- */
-  sr.reveal('.project-box',{interval: 200})
+/* ----- ANIMACIONES DESDE LA IZQUIERDA Y DERECHA ----- */
+// Configuración para animar desde la izquierda
+const srLeft = ScrollReveal({
+    origin: 'left',
+    distance: '80px',
+    duration: 2000,
+    reset: true
+})
   
-  /* -- HEADINGS -- */
-  sr.reveal('.top-header',{})
+// Elementos que se revelan desde la izquierda
+srLeft.reveal('.about-info',{delay: 100})
+srLeft.reveal('.contact-info',{delay: 100})
   
-  /* ----- ## -- SCROLL REVEAL LEFT_RIGHT ANIMATION -- ## ----- */
+// Configuración para animar desde la derecha
+const srRight = ScrollReveal({
+    origin: 'right',
+    distance: '80px',
+    duration: 2000,
+    reset: true
+})
   
-  /* -- ABOUT INFO & CONTACT INFO -- */
-  const srLeft = ScrollReveal({
-  origin: 'left',
-  distance: '80px',
-  duration: 2000,
-  reset: true
-  })
+// Elementos que se revelan desde la derecha
+srRight.reveal('.skills-box',{delay: 100})
+srRight.reveal('.form-control',{delay: 100})
   
-  srLeft.reveal('.about-info',{delay: 100})
-  srLeft.reveal('.contact-info',{delay: 100})
+/* ----- CAMBIAR EL ENLACE ACTIVO EN EL MENÚ SEGÚN EL SCROLL ----- */
+// Selecciona todas las secciones que tienen un atributo "id"
+const sections = document.querySelectorAll('section[id]')
   
-  /* -- ABOUT SKILLS & FORM BOX -- */
-  const srRight = ScrollReveal({
-  origin: 'right',
-  distance: '80px',
-  duration: 2000,
-  reset: true
-  })
+function scrollActive() {
+    // Obtiene la posición vertical actual del scroll
+    const scrollY = window.scrollY;
   
-  srRight.reveal('.skills-box',{delay: 100})
-  srRight.reveal('.form-control',{delay: 100})
+    // Recorre cada sección
+    sections.forEach(current =>{
+        // Obtiene la altura de la sección
+        const sectionHeight = current.offsetHeight,
+              // Obtiene la distancia desde la parte superior de la página
+              sectionTop = current.offsetTop - 50,
+              // Obtiene el id de la sección
+              sectionId = current.getAttribute('id')
   
+        // Verifica si el scroll está dentro de los límites de la sección
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
+            // Si está en la sección, añade la clase "active-link" al enlace correspondiente
+            document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }  else {
+            // Si no está en la sección, quita la clase "active-link"
+            document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
   
-  
-  /* ----- CHANGE ACTIVE LINK ----- */
-  
-  const sections = document.querySelectorAll('section[id]')
-  
-  function scrollActive() {
-  const scrollY = window.scrollY;
-  
-  sections.forEach(current =>{
-    const sectionHeight = current.offsetHeight,
-        sectionTop = current.offsetTop - 50,
-      sectionId = current.getAttribute('id')
-  
-    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
-  
-        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
-  
-    }  else {
-  
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
-  
-    }
-  })
-  }
-  
-  window.addEventListener('scroll', scrollActive)
+// Escucha el evento de scroll y ejecuta scrollActive()
+window.addEventListener('scroll', scrollActive)
