@@ -93,6 +93,11 @@ body {
     max-width: 1200px; /* Ancho máximo del contenedor */
     padding: 1rem; /* Padding interno del contenedor */
     justify-items: center; /* Centra las tarjetas horizontalmente */
+    grid-auto-flow: dense;
+    
+}
+.image-card-container .image-card:nth-last-child(1) {
+    order: -1; /* Mueve la última tarjeta al inicio */
 }
 
 /* ========== RESPONSIVE DESIGN - PANTALLAS GRANDES (hasta 1200px) ========== */
@@ -411,4 +416,122 @@ body {
 /* ========== TRANSICIÓN SUAVE PARA CARRUSEL AUTOMÁTICO ========== */
 .carousel-inner.transitioning {
     transition-duration: 0.6s; /* Duración de la transición del carrusel */
+}
+
+
+
+
+
+.badge-django {
+    background: #0C4B33 !important; /* Verde oficial de Django */
+}
+
+.badge-django .typography-tertiary-main {
+    color: #ffffff !important; /* Texto blanco */
+}
+
+.badge-django svg path {
+    fill: #ffffff; /* Ícono blanco */
+}
+
+.badge-javascript {
+    background: #F7DF1E !important;
+}
+
+.badge-javascript i,
+.badge-javascript .typography-tertiary-main {
+    color: #413c3c !important;
+}
+
+/* HTML - Naranja con texto blanco */
+.badge-html {
+    background: #E34F26 !important;
+}
+
+.badge-html i,
+.badge-html .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+/* CSS - Azul con texto blanco */
+.badge-css {
+    background: #1572B6 !important;
+}
+
+.badge-css i,
+.badge-css .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+/* Django - Verde con texto blanco */
+.badge-django {
+    background: #0C4B33 !important;
+}
+
+.badge-django svg path {
+    fill: #ffffff !important;
+}
+
+.badge-django .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+
+/* React - Azul cyan */
+.badge-react {
+    background: #61DAFB !important;
+}
+
+.badge-react i,
+.badge-react .typography-tertiary-main {
+    color: #282C34 !important; /* Texto oscuro para contraste */
+}
+
+/* Docker - Azul */
+.docker-icon {
+    width: 13px;
+    height: 13px;
+}
+
+.badge-docker {
+    background: #2496ED !important;
+}
+
+
+.badge-docker i,
+.badge-docker .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+/* Git - Naranja */
+.badge-git {
+    background: #F05032 !important;
+}
+
+.badge-git i,
+.badge-git .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+.python-icon {
+    width: 16px;
+    height: 19px;
+}
+
+
+
+
+/* PostgreSQL - Azul */
+.badge-postgresql {
+    background: #336791 !important;
+}
+
+.badge-postgresql .postgresql-icon,
+.badge-postgresql .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+.postgresql-icon {
+    width: 2.5em;
+    height: 2.5em;
 }
