@@ -520,7 +520,6 @@ body {
 
 
 
-
 /* PostgreSQL - Azul */
 .badge-postgresql {
     background: #336791 !important;
@@ -535,3 +534,23 @@ body {
     width: 2.5em;
     height: 2.5em;
 }
+
+
+
+
+/* Demo - Morado/Púrpura */
+.badge-demo {
+    background: #9B59B6 !important;
+}
+
+.badge-demo .demo-icon,
+.badge-demo .typography-tertiary-main {
+    color: #ffffff !important;
+}
+
+.demo-icon {
+    width: 13px;
+    height: 13px;
+}
+
+
